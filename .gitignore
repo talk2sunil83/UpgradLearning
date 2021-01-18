@@ -457,5 +457,6 @@ dmypy.json
 **/*.doc*
 **/*.ts
 **/*.pkl
+**/*.gz
 **/*.http
 **/TODO
