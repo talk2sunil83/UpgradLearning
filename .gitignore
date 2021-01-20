@@ -460,3 +460,5 @@ dmypy.json
 **/*.gz
 **/*.http
 **/TODO
+**/*.json
+

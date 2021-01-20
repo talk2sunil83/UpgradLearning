@@ -17,8 +17,7 @@
 '''
 # Solution Approach
 
- - Check if we can correctly segregate suspected claims
- - Prepare model
+
 '''
 # %% [markdown]
 '''
@@ -32,8 +31,8 @@
 
 # %%
 
-import src.utils.eda as eu
 import set_base_path
+import src.utils.eda as eu
 import numpy as np
 import pandas as pd
 from IPython.display import display
@@ -48,7 +47,7 @@ import plotly.express as px
 from sklearn.experimental import enable_iterative_imputer
 from sklearn.impute import IterativeImputer
 import warnings
-from src.constants import RAW_DATA_PATH, INTERIM_DATA_PATH, CLAIM_CAT_COLS
+from src.constants import RAW_DATA_PATH, INTERIM_DATA_PATH
 warnings.filterwarnings('ignore')
 # %%
 # Ignore warnings
@@ -60,10 +59,8 @@ warnings.filterwarnings('ignore')
 # %%
 # Load Data
 
-merged_df: pd.DataFrame = pd.read_feather(INTERIM_DATA_PATH / "merged_df.feather")
-claims_with_amount: pd.DataFrame = pd.read_feather(RAW_DATA_PATH / "claims_with_amount.feather")
-labour: pd.DataFrame = pd.read_feather(RAW_DATA_PATH / "labour.feather")
-parts_replaced: pd.DataFrame = pd.read_feather(RAW_DATA_PATH / "parts_replaced.feather")
+metadata = pd.read_csv(RAW_DATA_PATH/'metadata.csv')
+
 
 # %% [markdown]
 '''
@@ -85,22 +82,10 @@ pd.options.display.precision = 3
 '''
 ## Data Overview
 '''
-# %% [markdown]
-'''
-### Merged DF
-'''
-# %%
-# eu.get_data_frame_overview(merged_df)
-# %%
-# %%
-pivoted_columns = list(labour['JOB_CODE'].unique()) + list(parts_replaced['INS_PART_CODE'].unique())
-zeros = merged_df[pivoted_columns] == 0.
-(((zeros).sum()*100)/merged_df.shape[0]).sort_values(ascending=False)
 
 # %%
-# Claims Data
+eu.get_data_frame_overview(metadata, 2)
 
-eu.get_data_frame_overview(claims_with_amount)
 # %%
 # %% [markdown]
 '''
@@ -112,26 +97,59 @@ eu.get_data_frame_overview(claims_with_amount)
 #### value counts
 '''
 # %%
-eu.print_value_count_percents(claims_with_amount[CLAIM_CAT_COLS])
+eu.print_value_count_percents(metadata[['license']])
 # %% [markdown]
 '''
 #### value counts plots
 '''
 # %%
-eu.plot_univariate_categorical_columns(claims_with_amount[CLAIM_CAT_COLS], x_rotation=90, plot_limit=50)
+eu.plot_univariate_categorical_columns(metadata[['license']], x_rotation=90, plot_limit=50)
+# %%
+eu.plot_univariate_categorical_columns(metadata[['license']], interactive=True, plot_limit=50, log_y=True)
 # %% [markdown]
 '''
 #### distributions
 '''
 # %%
-claims_with_amount.dtypes
+metadata.dtypes
 # %%
-num_cols = claims_with_amount.dtypes[claims_with_amount.dtypes == np.float].index
+metadata = metadata.convert_dtypes()
 # %%
-claims_with_amount[num_cols].isnull().sum()
+metadata.dtypes
 
 # %%
-eu.plot_dist(claims_with_amount[num_cols])
+publish_time = 'publish_time'
+
+# %%
+metadata[publish_time].head()
+
+# %%
+metadata[publish_time].tail()
+# %%
+
+metadata[publish_time] = pd.to_datetime(metadata[publish_time], infer_datetime_format=True)
+
+# %%
+metadata[publish_time].head()
+
+# %%
+metadata[publish_time].tail()
+# %%
+publish_year = 'publish_year'
+publish_month = 'publish_month'
+publish_day = 'publish_day'
+
+# %%
+pub_dates: pd.Series = metadata[publish_time].dt
+metadata[publish_year] = pub_dates.year
+metadata[publish_month] = pub_dates.month
+metadata[publish_day] = pub_dates.dayofweek
+
+
+# %%
+
+# metadata.groupby(pd.Grouper(key="publish_time", freq="1M"))['cord_uid'].count()
+metadata.groupby(publish_year)['cord_uid'].count()
 
 # %% [markdown]
 '''
