@@ -129,8 +129,12 @@ def plot_univariate_categorical_columns(dataframe: pd.DataFrame, plot_limit: int
     """plots categorical variable bars
 
     Args:
-        categorical_cols (Sequence[str]): categorical columns
-        dataframe (pd.DataFrame): DataFrame
+        dataframe (pd.DataFrame): data frame with all categorical columns
+        plot_limit (int, optional): plot if category count is less than. Defaults to 30.
+        print_value_counts (bool, optional): print value counts or not. Defaults to False.
+        x_rotation ([type], optional): x-axis text rotation angle (in degrees with non-interactive module). Defaults to None.
+        y_rotation ([type], optional): y-axis text rotation angle (in degrees with non-interactive module). Defaults to None.
+        interactive (bool, optional): if plot to be interactive (slow and make notebook more in size). Defaults to False.
     """
     for c in dataframe.columns:
         value_counts_ser = dataframe[c].value_counts().sort_values(ascending=False)
@@ -218,7 +222,7 @@ def plot_two_variables(df, x, y, interactive: bool = False, **kwargs):
             fig = px.scatter(df, x=x, y=y, trendline="ols", **kwargs)
             fig.show()
         else:
-            __plot_two_features__(df, x, y, TwoVarPlotType.SCATTER, **kwargs)
+            __plot_two_features__(df, x, y, TwoVarPlotType.BOX, **kwargs)
 
     elif (__getdtype__(df[x]) == 'cat' and __getdtype__(df[y]) == 'num'):
         plot_box(df, x, y, interactive, **kwargs)
@@ -263,7 +267,8 @@ def count_of_uniques(dataframe: pd.DataFrame, display_res=False) -> pd.DataFrame
     unique_len = []
     for c in cols:
         uniques = dataframe[c].unique()
-        unique_values.append(sorted(uniques))
+        # unique_values.append(sorted(uniques))
+        unique_values.append(uniques)
         unique_len.append(len(uniques))
 
     frame = pd.DataFrame({

@@ -461,4 +461,4 @@ dmypy.json
 **/*.http
 **/TODO
 **/*.json
-
+**/*.jar

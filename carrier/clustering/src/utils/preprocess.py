@@ -3,6 +3,11 @@ from typing import Sequence
 import pandas as pd
 import numpy as np
 from datetime import date
+from joblib import Parallel, delayed
+from multiprocessing.pool import ThreadPool
+from typing import Dict
+from src.constants import NUM_CORES
+from src.utils.common import parallelize_dataframe
 
 
 def replace_values_having_less_count(dataframe: pd.DataFrame, target_cols: Sequence[str], threshold: int = 100,  replace_with="OTHER") -> pd.DataFrame:
@@ -32,3 +37,15 @@ def get_dummies_for_col(data_frame: pd.DataFrame, col_names: Sequence[str]):
         data_frame.drop(column, axis=1, inplace=True)
 
     return data_frame
+
+
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+def __fill_na__(col_values: pd.Series, fill_value) -> pd.Series:
+    col_values = col_values.fillna(fill_value)
+    return col_values
+
+
+def fill_na(dataframe: pd.DataFrame, na_map: Dict[str, str]) -> pd.DataFrame:
+    # with Parallel(n_jobs=NUM_CORES, require='sharedmem') as parallel:
+    parallelize_dataframe(dataframe, __fill_na__, )
+    # pass

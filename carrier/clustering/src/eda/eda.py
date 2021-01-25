@@ -59,7 +59,7 @@ warnings.filterwarnings('ignore')
 # %%
 # Load Data
 
-metadata = pd.read_csv(RAW_DATA_PATH/'metadata.csv')
+metadata = pd.read_csv(RAW_DATA_PATH/'metadata.zip')
 
 
 # %% [markdown]
@@ -98,6 +98,8 @@ eu.get_data_frame_overview(metadata, 2)
 '''
 # %%
 eu.print_value_count_percents(metadata[['license']])
+# %%
+eu.print_value_count_percents(metadata[['journal']])
 # %% [markdown]
 '''
 #### value counts plots
@@ -106,6 +108,12 @@ eu.print_value_count_percents(metadata[['license']])
 eu.plot_univariate_categorical_columns(metadata[['license']], x_rotation=90, plot_limit=50)
 # %%
 eu.plot_univariate_categorical_columns(metadata[['license']], interactive=True, plot_limit=50, log_y=True)
+
+# %%
+eu.plot_univariate_categorical_columns(metadata[['journal']], x_rotation=90, plot_limit=50)
+# %%
+eu.plot_univariate_categorical_columns(metadata[['journal']], interactive=True, plot_limit=50, log_y=True)
+
 # %% [markdown]
 '''
 #### distributions
@@ -119,15 +127,15 @@ metadata.dtypes
 
 # %%
 publish_time = 'publish_time'
-
+# %%
+sorted(list(metadata[metadata[publish_time].apply(lambda x: str(x).startswith('2021-'))][publish_time]), reverse=True)[:30]
 # %%
 metadata[publish_time].head()
 
 # %%
 metadata[publish_time].tail()
 # %%
-
-metadata[publish_time] = pd.to_datetime(metadata[publish_time], infer_datetime_format=True)
+metadata[publish_time] = pd.to_datetime(metadata[publish_time], format='%Y-%m-%d')
 
 # %%
 metadata[publish_time].head()
@@ -145,12 +153,30 @@ metadata[publish_year] = pub_dates.year
 metadata[publish_month] = pub_dates.month
 metadata[publish_day] = pub_dates.dayofweek
 
+# %%
+metadata[metadata[publish_time].isna() | metadata[publish_year].isna()][[publish_time, publish_year]]
 
 # %%
+year_wise_paper_published = metadata.groupby(publish_year)['cord_uid'].count().reset_index()
 
-# metadata.groupby(pd.Grouper(key="publish_time", freq="1M"))['cord_uid'].count()
-metadata.groupby(publish_year)['cord_uid'].count()
+# %%
+plt_frame: pd.DataFrame = year_wise_paper_published.copy()
+plt_frame[publish_year] = plt_frame[publish_year].astype(str)
+plt_frame[publish_year] = plt_frame[publish_year].apply(lambda x: x.split('.')[0] if len(x) > 0 else x)
+plt_frame.columns = [publish_year, 'paper_count']
+# %%
 
+plt_frame.plot(x=publish_year,
+               y='paper_count', kind='bar', figsize=(20, 10), title="Year wise paper count",
+               xlabel="Year", ylabel="Paper count")
+plt.show()
+# %%
+
+plt_frame.plot(x=publish_year,
+               y='paper_count', kind='bar', figsize=(20, 10), title="Year wise paper count", logy=True,
+               xlabel="Year", ylabel="Paper count on (Log Scale)")
+plt.show()
+# eu.plot_two_variables(plt_frame, publish_year, 'paper_count')
 # %% [markdown]
 '''
 ## Drop unwanted columns
@@ -164,11 +190,6 @@ metadata.groupby(publish_year)['cord_uid'].count()
 '''
 #### Plotting numeric and categorical
 '''
-# %%
-num_cols, CLAIM_CAT_COLS
-
-# %%
-len(num_cols), len(CLAIM_CAT_COLS)
 # %% [markdown]
 '''
 ### Bi-variate
@@ -177,10 +198,6 @@ len(num_cols), len(CLAIM_CAT_COLS)
 '''
 ### Correlation
 '''
-# %%
-plt.figure(figsize=(10, 10))
-sns.heatmap(claims_with_amount[num_cols].corr(), annot=True)
-plt.show()
 
 # Mostly positive correlated data
 # %% [markdown]
@@ -188,45 +205,20 @@ plt.show()
 #### Numeric-Numeric (Scatter plot)
 '''
 
-# %%
-eu.plot_two_variables(claims_with_amount, 'CLAIMED_AMOUNT', 'CLAIM_PAID_AMOUNT')
-# %%
-plt.figure(figsize=(10, 10))
-eu.plot_two_variables(claims_with_amount, 'UNITS_USAGE', 'CLAIM_PAID_AMOUNT')
 # %% [markdown]
 '''
 ####  Numeric-Categorical (Box and violin)
 '''
 
-# %%
-new_cols_cat = CLAIM_CAT_COLS[:]
-for rem_col in ["DEALER_NUMBER", "CAUSAL_REG_PART", "DEALER_CITY", "DEALER_STATE", "FAULT_LOCN", "FAULT_CODE"]:
-    new_cols_cat.remove(rem_col)
-for col in new_cols_cat:
-    plt.figure(figsize=(35, 10))
-    print(f"\nPlotting {col} vs CLAIM_PAID_AMOUNT\n")
-    eu.plot_two_variables(claims_with_amount, col, 'CLAIM_PAID_AMOUNT', x_rotation=90, legend=False)
+
 # %% [markdown]
 '''
 #### Categorical-Categorical (Cross Table)
 '''
 # %%
-pd.crosstab(claims_with_amount['CLAIM_TYPE'], claims_with_amount['CLAIM_STATE'])
-# %%
-# TODO: Not working need to check data types
-pd.crosstab(claims_with_amount['CLAIM_TYPE'], claims_with_amount[['CLAIM_STATE', 'APPLICABLE_POLICY',
-                                                                  'DEALER_NUMBER',
-                                                                  'DEALER_CITY',
-                                                                  'DEALER_STATE',
-                                                                  'DEALER_COUNTRY',
-                                                                  'CAUSAL_REG_PART',
-                                                                  'FAULT_CODE',
-                                                                  'FAULT_LOCN',
-                                                                  'REG_PRODUCT_FAMILY_NAME',
-                                                                  'REG_SERIES_NAME',
-                                                                  'MODEL_NAME',
-                                                                  'REG_MODEL_CODE',
-                                                                  'VARIANT']])
+
+# pd.crosstab(metadata[publish_year], metadata[['journal', 'license']], rownames=["Publish Year"], colnames=["Journal, 'License"])
+pd.crosstab(metadata['journal'], metadata['license'])
 # %% [markdown]
 '''
 Print a data frame with color

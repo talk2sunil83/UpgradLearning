@@ -15,6 +15,9 @@ from sklearn.experimental import enable_iterative_imputer
 from sklearn.impute import IterativeImputer
 import warnings
 from src.constants import RAW_DATA_PATH, INTERIM_DATA_PATH
+import src.utils.preprocess as pp
+import src.utils.eda as eu
+import src.utils.common as cmn
 warnings.filterwarnings('ignore')
 
 # %%
@@ -26,7 +29,7 @@ warnings.filterwarnings('ignore')
 '''
 # %%
 # Load Data
-metadata = pd.read_csv(RAW_DATA_PATH/'metadata.csv')
+metadata: pd.DataFrame = pd.read_csv(RAW_DATA_PATH/'metadata.zip')
 
 
 # %% [markdown]
@@ -53,5 +56,26 @@ metadata.head(1).style.hide_index()
 metadata.shape
 # %%
 metadata.isnull().sum()
+
+# %%
+eu.print_null_percents(metadata)
+# %%
+eu.count_of_uniques(metadata, display_res=True)
+
+# %%
+metadata.drop("mag_id", axis=1, inplace=True)
+
+# %%
+cols_with_nulls = eu.print_null_percents(metadata)
+# %%
+replace_value_map = {c: "NOT_PROVIDED" for c in cols_with_nulls.index}
+# %%
+for col, value in replace_value_map.items():
+    metadata[col] = metadata[col].fillna(value)
+# %%
+
+eu.print_null_percents(metadata)
+# %%
+metadata.to_csv(INTERIM_DATA_PATH/'metadata.zip', index=False, quoting=1, compression='zip')
 
 # %%
