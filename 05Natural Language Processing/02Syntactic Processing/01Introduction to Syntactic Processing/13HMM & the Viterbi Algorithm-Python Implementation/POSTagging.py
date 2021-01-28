@@ -14,23 +14,20 @@
 #
 # ## 1. Exploring Treebank Tagged Corpus
 
+import pprint
+import random
+import time
 # %%
 # Importing libraries
 from typing import Sequence, Tuple
+
+import matplotlib.pyplot as plt
 import nltk
-import re
-import pprint
 import numpy as np
 import pandas as pd
-import requests
-import matplotlib.pyplot as plt
 import seaborn as sns
-import pprint
-import time
-import random
-from sklearn.model_selection import train_test_split
 from nltk.tokenize import word_tokenize
-
+from sklearn.model_selection import train_test_split
 
 # %%
 # reading the Treebank tagged sentences
@@ -84,7 +81,7 @@ print(T)
 #
 # We'll use the HMM algorithm to tag the words. Given a sequence of words to be tagged, the task is to assign the most probable tag to the word.
 #
-# In other words, to every word w, assign the tag t that maximises the likelihood P(t/w). Since P(t/w) = P(w/t). P(t) / P(w), after ignoring P(w), we have to compute P(w/t) and P(t).
+# In other words, to every word w, assign the tag t that maximizes the likelihood P(t/w). Since P(t/w) = P(w/t). P(t) / P(w), after ignoring P(w), we have to compute P(w/t) and P(t).
 #
 #
 # P(w/t) is basically the probability that given a tag (say NN), what is the probability of it being w (say 'building'). This can be computed by computing the fraction of all NNs which are equal to w, i.e.
@@ -197,7 +194,8 @@ transition_prob("VB", "MD", print_count=True)
 
 
 # %%
-q5 =[("Donald","NN"),("Trump","NN"), ("is","VB"), ("the","DT"), ("current","JJ"), ("President","NN"), ("of","IN"), ("US","NN"), ("Before","IN"), ("entering","VB"), ("into","IN"), ("dirty","JJ"), ("politics","NN"), ("he","PRP"),("was","VB"), ("a","DT"), ("domineering","JJ"), ("businessman","NN"), ("and","CC"), ("television","NN"), ("personality","NN"),("Trump","NN"), ("entered","VB"), ("the","DT"), ("2016","CD"), ("presidential","JJ"), ("race","NN"), ("as","IN"), ("a","DT"), ("Republican","NN"), ("and","CC"), ("defeated","VBD"), ("16","CD"), ("opponents","NN")]
+q5 = [("Donald", "NN"), ("Trump", "NN"), ("is", "VB"), ("the", "DT"), ("current", "JJ"), ("President", "NN"), ("of", "IN"), ("US", "NN"), ("Before", "IN"), ("entering", "VB"), ("into", "IN"), ("dirty", "JJ"), ("politics", "NN"), ("he", "PRP"), ("was", "VB"), ("a", "DT"), ("domineering", "JJ"),
+      ("businessman", "NN"), ("and", "CC"), ("television", "NN"), ("personality", "NN"), ("Trump", "NN"), ("entered", "VB"), ("the", "DT"), ("2016", "CD"), ("presidential", "JJ"), ("race", "NN"), ("as", "IN"), ("a", "DT"), ("Republican", "NN"), ("and", "CC"), ("defeated", "VBD"), ("16", "CD"), ("opponents", "NN")]
 # %%
 # %%
 t2_given_t1("NN", "JJ", q5)
@@ -261,7 +259,7 @@ def Viterbi(words, train_bag=train_tagged_words):
     state = []
     T = list(set([pair[1] for pair in train_bag]))
 
-    for key, word in enumerate(words):
+    for key, _ in enumerate(words):
         # initialise list of probability column for a given observation
         p = []
         for tag in T:
@@ -277,9 +275,9 @@ def Viterbi(words, train_bag=train_tagged_words):
             state_probability = emission_p * transition_p
             p.append(state_probability)
 
-        pmax = max(p)
+        max_probability = max(p)
         # getting state for which probability is maximum
-        state_max = T[p.index(pmax)]
+        state_max = T[p.index(max_probability)]
         state.append(state_max)
     return list(zip(words, state))
 
@@ -293,11 +291,11 @@ def Viterbi(words, train_bag=train_tagged_words):
 
 random.seed(1234)
 
-# choose random 5 sents
-rndom = [random.randint(1, len(test_set)) for x in range(5)]
+# choose random 5 sentences
+random_ints = [random.randint(1, len(test_set)) for _ in range(5)]
 
-# list of sents
-test_run = [test_set[i] for i in rndom]
+# list of sentences
+test_run = [test_set[i] for i in random_ints]
 
 # list of tagged words
 test_run_base = [tup for sent in test_run for tup in sent]
@@ -368,7 +366,8 @@ difference = end-start
 print(tagged_seq)
 # %%
 
-q5 =[("Donald","NN"),("Trump","NN"), ("is","VB"), ("the","DT"), ("current","JJ"), ("President","NN"), ("of","IN"), ("US","NN"), ("Before","IN"), ("entering","VB"), ("into","IN"), ("dirty","JJ"), ("politics","NN"), ("he","PRP"),("was","VB"), ("a","DT"), ("domineering","JJ"), ("businessman","NN"), ("and","CC"), ("television","NN"), ("personality","NN"),("Trump","NN"), ("entered","VB"), ("the","DT"), ("2016","CD"), ("presidential","JJ"), ("race","NN"), ("as","IN"), ("a","DT"), ("Republican","NN"), ("and","CC"), ("defeated","VBD"), ("16","CD"), ("opponents","NN")]
+q5 = [("Donald", "NN"), ("Trump", "NN"), ("is", "VB"), ("the", "DT"), ("current", "JJ"), ("President", "NN"), ("of", "IN"), ("US", "NN"), ("Before", "IN"), ("entering", "VB"), ("into", "IN"), ("dirty", "JJ"), ("politics", "NN"), ("he", "PRP"), ("was", "VB"), ("a", "DT"), ("domineering", "JJ"),
+      ("businessman", "NN"), ("and", "CC"), ("television", "NN"), ("personality", "NN"), ("Trump", "NN"), ("entered", "VB"), ("the", "DT"), ("2016", "CD"), ("presidential", "JJ"), ("race", "NN"), ("as", "IN"), ("a", "DT"), ("Republican", "NN"), ("and", "CC"), ("defeated", "VBD"), ("16", "CD"), ("opponents", "NN")]
 # %%
 transition_prob("JJ", "NN", q5, print_count=True)
 
