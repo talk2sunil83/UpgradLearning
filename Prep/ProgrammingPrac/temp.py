@@ -1,5 +1,6 @@
 # %%
 
+from typing import Sequence
 from numba import njit
 # %%
 
@@ -45,6 +46,20 @@ def grid_traveller(x: int, y: int, memo={}) -> int:
 
 print(grid_traveller(1, 1))
 print(grid_traveller(3, 3))
-print(grid_traveller(18, 18))
+print(grid_traveller(10, 10))
 
 # %%
+
+
+def can_sum(target: int, arr: Sequence[int]) -> bool:
+    pass
+# %%
+
+
+def how_sum(target: int, arr: Sequence[int]) -> Sequence[int]:
+    pass
+# %%
+
+
+def can_sum(target: int, arr: Sequence[int]):
+    pass
