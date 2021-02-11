@@ -465,7 +465,7 @@ dmypy.json
 **/*.jar
 **/*.jfif
 **/helpdesk-assistant/
-**/test_bot/
+# **/FoodieChatBot/
 **/Rasa_basic_folder/
 
 

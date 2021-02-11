@@ -1,0 +1,92 @@
+version: 2.0
+config:
+  store_entities_as_slots: true
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+  - greet:
+      use_entities: true
+  - goodbye:
+      use_entities: true
+  - location:
+      use_entities: true
+  - cuisine:
+      use_entities: true
+  - budget:
+      use_entities: true
+  - email:
+      use_entities: true
+  - bot_challenge:
+      use_entities: true
+entities: []
+slots: {}
+
+responses:
+  utter_greet:
+    - text: Hey! How are you?
+    - text: How can I help you to find food?
+    - text: Looking for food? I cna help you.
+    - text: Hungry? let me help you.
+
+  utter_location:
+    - text: In which city would you like to find food?
+    - text: In which city would you like to search food?
+    - text: In which city?
+    - text: In which location?
+    - text: what location?
+    - text: what city?
+    - text: In which city would you like to find restaurant?
+    - text: In which location would you like to find restaurant?
+    - text: what location would you like to find restaurent?
+    - text: what city would you like to find restaurent?
+
+  utter_cuisine:
+    - text: Which cuisine would you prefer today?
+    - text: Which cuisine would you like to eat today?
+      buttons:
+        - title: Chinese
+          payload: Chinese
+        - title: Mexican
+          payload: Mexican
+        - title: Italian
+          payload: Italian
+        - title: American
+          payload: American
+        - title: South Indian
+          payload: SouthIndian
+        - title: North Indian
+          payload: NorthIndian
+
+  utter_budget:
+    - text: What is your Budget today (for two people)?
+    - text: In which range (for two people)?
+      buttons:
+        - title: Less than ₹300
+          payload: Low
+        - title: ₹300 to 700
+          payload: Medium
+        - title: More than ₹700
+          payload: High
+
+  utter_send_email:
+    - text: "text"
+      buttons:
+        - title: "Yes"
+          payload: /affirm
+        - title: "No"
+          payload: /deny
+
+  utter_email:
+    - text: At which email address would you like to send email?
+    - text: Email address please.
+    - text: What is your email address?
+    - text: Provide your email address.
+
+  utter_goodbye:
+    - text: Bye
+  utter_iamabot:
+    - text: I am a bot, powered by Rasa.
+actions: []
+forms: {}
+e2e_actions: []

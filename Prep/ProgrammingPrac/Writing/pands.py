@@ -29,7 +29,7 @@ df = pd.DataFrame({"C1": [1, 2, 3, 4], "C2": [101, 202, 303, 404], "C3": [10, 52
 df_mask = pd.DataFrame({C1: [True] * 4, C2: [False] * 4, C3: [True, False] * 2})
 df.where(df_mask, -1000)
 # %%
-# if-then-else using NumPy’s where()
+# if-then-else using Numpy where()
 df["logic"] = np.where(df[C1] > 2, "high", "low")
 df
 # %%
