@@ -1,14 +1,592 @@
 version: "2.0"
-
 stories:
-  - story: everything sequential
+  - story: Story 1
     steps:
       - intent: greet
       - action: utter_greet
-      - intent: mood_great
-      - action: utter_happy
-# We need to get  location, cuisine, budget and email and we can get all these slots in many ways
-# Single
-# Pair
-# Triplet
-# All four together
+      - intent: restaurant_search
+      - action: utter_ask_location
+      - intent: restaurant_search
+      - action: action_check_location
+      - action: utter_ask_cuisine
+      - intent: restaurant_search
+      - action: utter_ask_price
+      - intent: restaurant_search
+      - action: action_restaurant
+      - action: utter_ask_whethermail
+      - intent: deny
+      - action: utter_final_bye
+  - story: Story 2
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: restaurant_search
+      - action: utter_ask_location
+      - intent: restaurant_search
+      - action: action_check_location
+      - action: utter_ask_cuisine
+      - intent: restaurant_search
+      - action: utter_ask_price
+      - intent: restaurant_search
+      - action: action_restaurant
+      - action: utter_ask_whethermail
+      - action: email_restaurant_details
+  - story: Story 3
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: restaurant_search
+      - action: utter_ask_location
+      - intent: restaurant_search
+      - action: action_check_location
+      - action: utter_location_notfound
+      - intent: restaurant_search
+      - action: utter_ask_cuisine
+      - intent: restaurant_search
+      - action: utter_ask_price
+      - intent: restaurant_search
+      - action: action_restaurant
+      - action: utter_ask_whethermail
+      - intent: deny
+      - action: utter_final_bye
+  - story: Story 3
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: restaurant_search
+      - action: utter_ask_location
+      - intent: restaurant_search
+      - action: action_check_location
+      - action: utter_location_notfound
+      - intent: restaurant_search
+      - action: utter_ask_cuisine
+      - intent: restaurant_search
+      - action: utter_ask_price
+      - intent: restaurant_search
+      - action: action_restaurant
+      - action: utter_ask_whethermail
+      - intent: deny
+      - action: utter_final_bye
+  - story: Story 4
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: restaurant_search
+      - action: utter_ask_location
+      - intent: restaurant_search
+      - action: action_check_location
+      - action: utter_foodie_not_working
+      - intent: restaurant_search
+      - action: utter_ask_cuisine
+      - intent: restaurant_search
+      - action: utter_ask_price
+      - intent: restaurant_search
+      - action: action_restaurant
+      - action: utter_ask_whethermail
+      - intent: affirm
+      - action: email_restaurant_details
+  - story: Story 5
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: restaurant_search
+      - action: utter_ask_location
+      - intent: restaurant_search
+      - action: action_check_location
+      - action: utter_foodie_not_working
+      - intent: restaurant_search
+      - action: utter_ask_cuisine
+      - intent: restaurant_search
+      - action: utter_ask_price
+      - intent: restaurant_search
+      - action: action_restaurant
+      - action: utter_ask_whethermail
+      - intent: deny
+      - action: utter_final_bye
+  - story: Story 6
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: restaurant_search
+      - action: utter_ask_location
+      - intent: restaurant_search
+      - action: action_check_location
+      - action: utter_ask_cuisine
+      - intent: restaurant_search
+      - action: utter_ask_price
+      - intent: restaurant_search
+      - action: action_restaurant
+      - action: utter_ask_whethermail
+      - intent: deny
+      - action: utter_final_bye
+  - story: Story 7
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: restaurant_search
+      - action: utter_ask_location
+      - intent: restaurant_search
+      - action: action_check_location
+      - action: utter_foodie_not_working
+      - intent: restaurant_search
+      - action: utter_ask_cuisine
+      - intent: restaurant_search
+      - action: utter_ask_price
+      - intent: restaurant_search
+      - action: action_restaurant
+      - action: utter_ask_whethermail
+      - intent: affirm
+      - action: email_restaurant_details
+  - story: Story 8
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: restaurant_search
+      - action: action_check_location
+      - action: utter_ask_cuisine
+      - intent: restaurant_search
+      - action: utter_ask_price
+      - intent: restaurant_search
+      - action: action_restaurant
+      - action: utter_ask_whethermail
+      - intent: deny
+      - action: utter_final_bye
+  - story: Story 8
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: restaurant_search
+      - action: utter_ask_location
+      - intent: restaurant_search
+      - action: action_check_location
+      - action: utter_ask_cuisine
+      - intent: restaurant_search
+      - action: utter_ask_price
+      - intent: restaurant_search
+      - action: action_restaurant
+      - action: utter_ask_whethermail
+      - intent: deny
+      - action: utter_final_bye
+  - story: Story 9
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: restaurant_search
+      - action: action_check_location
+      - action: utter_foodie_not_working
+      - intent: restaurant_search
+      - action: utter_ask_cuisine
+      - intent: restaurant_search
+      - action: utter_ask_price
+      - intent: restaurant_search
+      - action: action_restaurant
+      - action: utter_ask_whethermail
+      - intent: affirm
+      - action: email_restaurant_details
+  - story: Story 10
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: restaurant_search
+      - action: action_check_location
+      - action: utter_ask_cuisine
+      - intent: restaurant_search
+      - action: utter_ask_price
+      - intent: restaurant_search
+      - action: action_restaurant
+      - action: utter_ask_whethermail
+      - intent: deny
+      - action: utter_final_bye
+  - story: Story 11
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: restaurant_search
+      - action: action_check_location
+      - action: utter_location_notfound
+      - intent: restaurant_search
+      - action: utter_ask_cuisine
+      - intent: restaurant_search
+      - action: utter_ask_price
+      - intent: restaurant_search
+      - action: action_restaurant
+      - action: utter_ask_whethermail
+      - intent: deny
+      - action: utter_final_bye
+  - story: Story 12
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: restaurant_search
+      - action: action_check_location
+      - action: utter_location_notfound
+      - intent: restaurant_search
+      - action: utter_ask_cuisine
+      - intent: restaurant_search
+      - action: utter_ask_price
+      - intent: restaurant_search
+      - action: action_restaurant
+      - action: utter_ask_whethermail
+      - intent: affirm
+      - action: email_restaurant_details
+  - story: Story 13
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: restaurant_search
+      - action: action_check_location
+      - action: utter_ask_cuisine
+      - intent: restaurant_search
+      - action: utter_ask_price
+      - intent: restaurant_search
+      - action: action_restaurant
+      - action: utter_ask_whethermail
+      - intent: deny
+      - action: utter_final_bye
+  - story: Story 14
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: restaurant_search
+      - action: action_check_location
+      - action: utter_ask_price
+      - intent: restaurant_search
+      - action: action_restaurant
+      - action: utter_ask_whethermail
+      - intent: deny
+      - action: utter_final_bye
+  - story: Story 15
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: restaurant_search
+      - action: action_check_location
+      - action: utter_ask_price
+      - intent: restaurant_search
+      - action: action_restaurant
+      - action: utter_ask_whethermail
+      - intent: affirm
+      - action: utter_ask_mail
+      - intent: affirm
+      - action: email_restaurant_details
+  - story: Story 16
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: restaurant_search
+      - action: action_check_location
+      - action: utter_location_notfound
+      - intent: restaurant_search
+      - action: utter_ask_price
+      - intent: restaurant_search
+      - action: action_restaurant
+      - action: utter_ask_whethermail
+      - intent: deny
+      - action: utter_final_bye
+  - story: Story 17
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: restaurant_search
+      - action: action_check_location
+      - action: utter_foodie_not_working
+      - intent: restaurant_search
+      - action: utter_ask_price
+      - intent: restaurant_search
+      - action: action_restaurant
+      - action: utter_ask_whethermail
+      - intent: affirm
+      - action: utter_ask_mail
+      - intent: affirm
+      - action: email_restaurant_details
+  - story: Story 18
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: restaurant_search
+      - action: action_check_location
+      - action: utter_ask_cuisine
+      - intent: restaurant_search
+      - action: utter_ask_price
+      - intent: restaurant_search
+      - action: action_restaurant
+      - action: utter_ask_whethermail
+      - intent: deny
+      - action: utter_final_bye
+  - story: Story 19
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: restaurant_search
+      - action: action_check_location
+      - action: utter_foodie_not_working
+      - intent: restaurant_search
+      - action: utter_ask_price
+      - intent: restaurant_search
+      - action: action_restaurant
+      - action: utter_ask_whethermail
+      - intent: deny
+      - action: utter_final_bye
+  - story: Story 20
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: restaurant_search
+      - action: action_check_location
+      - action: utter_location_notfound
+      - intent: restaurant_search
+      - action: utter_ask_price
+      - intent: restaurant_search
+      - action: action_restaurant
+      - action: utter_ask_whethermail
+      - action: email_restaurant_details
+  - story: Story 21
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: restaurant_search
+      - action: action_check_location
+      - action: utter_location_notfound
+      - intent: restaurant_search
+      - action: utter_ask_cuisine
+      - intent: restaurant_search
+      - action: utter_ask_price
+      - intent: restaurant_search
+      - action: action_restaurant
+      - action: utter_ask_whethermail
+      - intent: deny
+      - action: utter_final_bye
+  - story: Story 22
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: restaurant_search
+      - action: utter_ask_location
+      - intent: restaurant_search
+      - action: action_check_location
+      - action: utter_ask_cuisine
+      - intent: restaurant_search
+      - action: utter_ask_price
+      - intent: restaurant_search
+      - action: action_restaurant
+      - action: utter_ask_whethermail
+      - intent: affirm
+      - action: email_restaurant_details
+  - story: Story 23
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: restaurant_search
+      - action: utter_ask_location
+      - intent: restaurant_search
+      - action: action_check_location
+      - action: utter_location_notfound
+      - intent: restaurant_search
+      - action: utter_ask_cuisine
+      - intent: restaurant_search
+      - action: utter_ask_price
+      - intent: restaurant_search
+      - action: action_restaurant
+      - action: utter_ask_whethermail
+      - intent: deny
+      - action: utter_final_bye
+  - story: Story 24
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: restaurant_search
+      - action: action_check_location
+      - action: utter_ask_price
+      - intent: restaurant_search
+      - action: action_restaurant
+      - action: utter_ask_whethermail
+      - intent: affirm
+      - action: email_restaurant_details
+  - story: Story 25
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: restaurant_search
+      - action: action_check_location
+      - action: utter_ask_cuisine
+      - intent: restaurant_search
+      - action: utter_ask_price
+      - intent: restaurant_search
+      - action: action_restaurant
+      - action: utter_ask_whethermail
+      - intent: affirm
+      - action: email_restaurant_details
+  - story: Story 26
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: restaurant_search
+      - action: action_check_location
+      - action: utter_ask_cuisine
+      - intent: restaurant_search
+      - action: utter_ask_price
+      - intent: restaurant_search
+      - action: action_restaurant
+      - action: utter_ask_whethermail
+      - intent: affirm
+      - action: utter_ask_mail
+      - intent: affirm
+      - action: email_restaurant_details
+  - story: Story 27
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: restaurant_search
+      - action: utter_ask_location
+      - intent: restaurant_search
+      - action: action_check_location
+      - action: utter_ask_price
+      - intent: restaurant_search
+      - action: action_restaurant
+      - action: utter_ask_whethermail
+      - intent: affirm
+      - action: utter_ask_mail
+      - intent: affirm
+      - action: email_restaurant_details
+  - story: Story 28
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: restaurant_search
+      - action: utter_ask_location
+      - intent: restaurant_search
+      - action: action_check_location
+      - action: utter_ask_price
+      - intent: restaurant_search
+      - action: action_restaurant
+      - action: utter_ask_whethermail
+      - intent: affirm
+      - action: utter_ask_mail
+      - intent: affirm
+      - action: email_restaurant_details
+  - story: Story 29
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: restaurant_search
+      - action: utter_ask_location
+      - intent: restaurant_search
+      - action: action_check_location
+      - action: utter_ask_price
+      - intent: restaurant_search
+      - action: action_restaurant
+      - action: utter_ask_whethermail
+      - intent: affirm
+      - action: utter_ask_mail
+      - intent: affirm
+      - action: email_restaurant_details
+  - story: Story 30
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: restaurant_search
+      - action: utter_ask_location
+      - intent: restaurant_search
+      - action: action_check_location
+      - action: utter_ask_price
+      - intent: restaurant_search
+      - action: action_restaurant
+      - action: utter_ask_whethermail
+      - intent: affirm
+      - action: utter_ask_mail
+      - intent: affirm
+      - action: email_restaurant_details
+  - story: Story 31
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: restaurant_search
+      - action: action_check_location
+      - action: utter_ask_price
+      - intent: restaurant_search
+      - action: action_restaurant
+      - action: utter_ask_whethermail
+      - intent: affirm
+      - action: utter_ask_mail
+      - intent: affirm
+      - action: email_restaurant_details
+  - story: Story 32
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: restaurant_search
+      - action: action_check_location
+      - action: utter_ask_price
+      - intent: restaurant_search
+      - action: action_restaurant
+      - action: utter_ask_whethermail
+      - intent: deny
+      - action: utter_final_bye
+  - story: Story 33
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: restaurant_search
+      - action: action_check_location
+      - action: utter_ask_cuisine
+      - intent: restaurant_search
+      - action: utter_ask_price
+      - intent: restaurant_search
+      - action: action_restaurant
+      - action: utter_ask_whethermail
+      - intent: deny
+      - action: utter_final_bye
+  - story: Story 34
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: restaurant_search
+      - action: action_check_location
+      - action: utter_ask_cuisine
+      - intent: restaurant_search
+      - action: utter_ask_price
+      - intent: restaurant_search
+      - action: action_restaurant
+      - action: utter_ask_whethermail
+      - intent: deny
+      - action: utter_final_bye
+  - story: Story 35
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: restaurant_search
+      - action: action_check_location
+      - action: utter_location_notfound
+      - intent: restaurant_search
+      - action: utter_ask_price
+      - intent: restaurant_search
+      - action: action_restaurant
+      - action: utter_ask_whethermail
+      - intent: affirm
+      - action: utter_ask_mail
+      - intent: affirm
+      - action: email_restaurant_details
+  - story: Story 36
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: restaurant_search
+      - action: action_check_location
+      - action: utter_ask_cuisine
+      - intent: restaurant_search
+      - action: utter_ask_price
+      - intent: restaurant_search
+      - action: action_restaurant
+      - action: utter_ask_whethermail
+      - intent: deny
+      - action: utter_final_bye
+  - story: Story 37
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: restaurant_search
+      - action: action_check_location
+      - action: utter_ask_price
+      - intent: restaurant_search
+      - action: action_restaurant
+      - action: utter_ask_whethermail
