@@ -468,8 +468,12 @@ dmypy.json
 **/*.db
 **/*.dot
 **/helpdesk-assistant/
-# **/FoodieChatBot/
+**/FoodieChatBot/
 **/Rasa_basic_folder/
+**/FoodieChatBot_Desktop/
+**/FoodieChatBotWithCsv/
+**/FoodieChatBotWithCsv - Copy/
+**/VideoPrep/
 
 
 

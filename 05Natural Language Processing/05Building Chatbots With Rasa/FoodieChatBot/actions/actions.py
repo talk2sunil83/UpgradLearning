@@ -1,31 +1,15 @@
-# This files contains your custom actions which can be used to run
-# custom Python code.
-#
-# See this guide on how to implement these action:
-# https://rasa.com/docs/rasa/custom-actions
+from __future__ import absolute_import, division, unicode_literals
 
-
-# This is a simple example for a custom action which utters "Hello World!"
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import unicode_literals
-
-from typing import Any, Text, Dict, List
-
-from rasa_sdk import Action, Tracker
-from rasa_sdk.executor import CollectingDispatcher
+import logging
 
 
 from rasa_sdk import Action
 from rasa_sdk.events import SlotSet
-import json
-#from send_mail import email
-import pandas as pd
-from utils.zomato_slots import results
 from utils.city_check import check_location
 from utils.email_cred_config import Config
 from utils.mail_service import send_email
-import logging
+from utils.zomato_slots import results
+
 logging.basicConfig(level="DEBUG")
 
 

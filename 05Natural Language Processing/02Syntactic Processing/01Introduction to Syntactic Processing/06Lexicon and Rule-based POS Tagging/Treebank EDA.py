@@ -243,3 +243,4 @@ rule_based_tagger = nltk.RegexpTagger(patterns)
 lexicon_tagger = nltk.UnigramTagger(train_set, backoff=rule_based_tagger)
 
 lexicon_tagger.evaluate(test_set)
+# %%
