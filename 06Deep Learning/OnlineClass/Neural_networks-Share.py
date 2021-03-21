@@ -86,9 +86,12 @@ def forward_propagation(X, weights):
 
 
 # X1W1 + X2 W2 + X3W3 + .. + B
-
+# %%
+forward_propagation(X, weights)
 
 # %%
+
+
 def back_propagation(X, Y_T, weights):
 
     N_points = X.shape[0]

@@ -1,7 +1,8 @@
 # %%
 from math import exp
-from scipy.special import softmax
+from scipy.special import softmax, expit as sigmoid
 import numpy as np
+
 # %%
 w0 = np.array([1, 1, -1])
 w1 = np.array([2, 0, -1])
