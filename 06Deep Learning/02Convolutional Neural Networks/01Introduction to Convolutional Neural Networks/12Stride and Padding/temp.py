@@ -109,3 +109,6 @@ get_total_calculations(3, 0, 3)
 # %%
 get_op_size(224, 0, 2, 2)
 # %%
+get_op_size(4, 1, 3, 1)
+
+# %%
