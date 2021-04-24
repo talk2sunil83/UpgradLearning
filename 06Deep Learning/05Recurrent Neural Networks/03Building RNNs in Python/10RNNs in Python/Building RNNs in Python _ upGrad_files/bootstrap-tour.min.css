@@ -1,0 +1,128 @@
+<!DOCTYPE html><html><head><title></title><link rel="icon" type="image/x-icon" href="https://www.upgrad.com/favicon.ico"><link rel="manifest" href="/manifest.json"><link rel="stylesheet" href="/css/jquery-ui-1.10.4.custom.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.10.0/css/OverlayScrollbars.min.css"><script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js?v=1618808490363"></script><script type="text/javascript">window.jQuery || document.write('<script src="/javascripts/vendors/jquery-2.1.1.min.js"><\/script>')
+</script><script src="https://www.google.com/recaptcha/api.js"></script><script type="text/javascript">function getHostedData(url, style) {
+	if(typeof jQuery !== 'undefined'){
+		$.ajax({
+			url: url,
+			success: function(data){
+				if(style){
+					$('<style type="text/css"></style>')
+						.html(data)
+						.appendTo("head");
+				}else{
+					$('<script type="text/javascript"><\/script>')
+						.html(data)
+						.appendTo("head")
+				}
+			}
+		})
+	}
+}</script><link href="https://fonts.googleapis.com/css?family=Lato:400,400i,300,300i,700|Merriweather:400,700,300" rel="stylesheet" type="text/css" onerror="getHostedData('https://s3-ap-southeast-1.amazonaws.com/upgradcdn/font-family.css', true)"><meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1"><link rel="stylesheet" type="text/css" href="/dist-css/common-style.min.css?v=1618808490363"><script type="text/javascript">detectBrowser = function() {
+	var aKeys, i, j, ref, userAgentString;
+	userAgentString = navigator.userAgent;
+	//- Trident is found in IE 6 - IE 11. Some new versions of IE do not have MSIE string
+	aKeys = ["Trident", "Edge", "MSIE", "Opera", "Chrome", "Safari", "Firefox"];
+	for (i = j = 0, ref = aKeys.length; (0 <= ref ? j < ref : j > ref); i = 0 <= ref ? ++j : --j) {
+		if (userAgentString.indexOf(aKeys[i]) > -1) {
+			return aKeys[i];
+		}
+	}
+},
+detectVersion = function(browser) {
+	return Number(navigator.userAgent.split(`${browser}/`)[1].split('.')[0]);
+},
+
+checkBrowserAndNotifyIfUnSupported = function(){
+	var version, notSupported;
+	supportedBrowsers = ["Chrome", "Safari", "Firefox"];
+	thisBrowser = detectBrowser();
+	if (supportedBrowsers.indexOf(thisBrowser) == -1) {
+		alert("We recommend using Chrome/Firefox/Safari for a better experience.");
+		return;
+	}
+	if (supportedBrowsers.indexOf(thisBrowser) != -1) {
+		//- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Browser_compatibility
+		version = detectVersion(thisBrowser)
+		if (thisBrowser == "Chrome"){
+			notSupported = (version < 49);
+		} else if (thisBrowser == "Safari") {
+			notSupported = (version < 9);
+		} else if (thisBrowser == "Firefox") {
+			notSupported = (version < 45);
+		}
+		if (notSupported) {
+			alert("You are using a very old version of " + thisBrowser + ". Kindly update the browser for using this platform.")
+		}
+	}
+}
+checkBrowserAndNotifyIfUnSupported()
+</script><link rel="stylesheet" href="/stylesheets/login.css?v=1618808490363"><script type="text/javascript">envVars = "{&quot;mixpanelKey&quot;:&quot;2beed654c57345f575c04a7aec057b9b&quot;,&quot;assessmentPath&quot;:&quot;https://prodassessmentsapi.upgrad.com&quot;,&quot;authPath&quot;:&quot;https://prod-auth-api.upgrad.com/apis&quot;,&quot;growthPath&quot;:&quot;https://prodapi.upgrad.com/apis&quot;,&quot;learnPath&quot;:&quot;https://prod-learn-api.upgrad.com/apis&quot;,&quot;gatewayPath&quot;:&quot;https://prodapigateway.upgrad.com&quot;,&quot;lecturePath&quot;:&quot;https://lecturesapi.upgrad.com/api&quot;,&quot;npsPath&quot;:&quot;https://prodexternalapi.upgrad.com/apis&quot;,&quot;gradingPath&quot;:&quot;https://prodgradingapi.upgrad.com&quot;,&quot;careerPath&quot;:&quot;https://prodcareersapi.upgrad.com&quot;,&quot;careerSite&quot;:&quot;https://careers.upgrad.com&quot;,&quot;learnLiteSite&quot;:&quot;https://lite.upgrad.com&quot;,&quot;skillsPath&quot;:&quot;https://skills.upgrad.com/&quot;,&quot;profilePath&quot;:&quot;https://profile.upgrad.com/&quot;,&quot;coeusPath&quot;:&quot;https://prod-coeus-api.upgrad.com&quot;,&quot;skillsCourseIds&quot;:[14,235,136,258,375],&quot;referralV2Cohorts&quot;:[593,376,675],&quot;polarisUrl&quot;:&quot;https://prodpolaris.upgrad.com&quot;,&quot;environment&quot;:&quot;production&quot;,&quot;cookieDomain&quot;:&quot;.upgrad.com&quot;,&quot;forumApi&quot;:&quot;https://prodforumapi.upgrad.com&quot;,&quot;notificationsPath&quot;:&quot;https://prodnotifications.upgrad.com&quot;,&quot;performancePath&quot;:&quot;https://learn.upgrad.com&quot;,&quot;rollbar&quot;:&quot;34649fcc03ce4142bd4599a471f7ef1b&quot;,&quot;segmentKey&quot;:&quot;NrnDfiKvmYxWPrd20QozAYp9GGZpH5kb&quot;,&quot;courseIds&quot;:[15,13],&quot;oneSignalKey&quot;:&quot;511171cb-a872-4171-a283-2a6655f706d5&quot;,&quot;hostWhiteList&quot;:[&quot;learn.upgrad.com&quot;,&quot;teach.upgrad.com&quot;],&quot;platform&quot;:&quot;web-student&quot;,&quot;cleverTap&quot;:&quot;69W-887-674Z&quot;,&quot;googlePlacesKey&quot;:&quot;AIzaSyC-cKjWTsINzOuObU9cpwLltJcPFY1J4LA&quot;,&quot;marketingProgramsBaseUrl&quot;:&quot;https://upgrad.com/programs/&quot;,&quot;gradingSite&quot;:&quot;https://grade.upgrad.com&quot;,&quot;lectureSite&quot;:&quot;https://lectures.upgrad.com&quot;,&quot;tapchiefApiKey&quot;:&quot;47af8e6bc5e111099c0e95f7d400b147a90c81737dd3b166&quot;,&quot;tapchiefUrl&quot;:&quot;http://mentor.upgrad.com&quot;,&quot;helpUrl&quot;:&quot;https://help.upgrad.com&quot;,&quot;doSelectApiKey&quot;:&quot;b68f81cd2d1f46679db95c9a0b11a962&quot;,&quot;featureFlags&quot;:{&quot;demo&quot;:{&quot;isEnabled&quot;:true},&quot;externalComponent&quot;:{&quot;isEnabled&quot;:true},&quot;taStar&quot;:{&quot;isEnabled&quot;:false},&quot;userSettings&quot;:{&quot;isEnabled&quot;:true}},&quot;clients&quot;:{&quot;learn&quot;:&quot;https://learn.upgrad.com&quot;,&quot;discover&quot;:&quot;https://discover.upgrad.com&quot;,&quot;lw&quot;:&quot;https://learningweek.upgrad.com&quot;,&quot;silp&quot;:&quot;https://startupindia.upgrad.com&quot;},&quot;rootTypeformCareersURL&quot;:&quot;https://upgrad1.typeform.com/to/&quot;,&quot;typeformId&quot;:&quot;RWuv5s&quot;,&quot;eaVendorbundleUrl&quot;:&quot;https://upgradcdn.s3-ap-southeast-1.amazonaws.com/ea-lib/vendor.bundle.prod.js&quot;,&quot;eaAppbundleUrl&quot;:&quot;https://upgradcdn.s3-ap-southeast-1.amazonaws.com/ea-lib/app.bundle.prod.js&quot;,&quot;nmimsCourse&quot;:[393,627,665,949,1092,1403],&quot;nmimsPath&quot;:&quot;http://studentzone-ngasce.nmims.edu/&quot;,&quot;user&quot;:null,&quot;version&quot;:1618808489690,&quot;redirectPath&quot;:&quot;learn.upgrad.com/css/bootstrap-tour.min.css&quot;,&quot;originalPlatform&quot;:&quot;web-student&quot;,&quot;shareImageId&quot;:&quot;241b5dd6-f69d-4fe3-9022-b2e902773a99-badge&quot;,&quot;queryString&quot;:&quot;&quot;,&quot;shareImageBaseUrl&quot;:&quot;images&quot;}"
+envVars = JSON.parse(envVars.replace(/&quot;/g,'"'))
+var LOCAL_DATA = {
+	users: null,
+	courses:null,
+};
+for(var attrname in envVars) {
+	LOCAL_DATA[attrname] = envVars[attrname];
+}
+</script><script type="text/javascript">var email = null;
+var id = null;
+if(LOCAL_DATA.user && LOCAL_DATA.user.email){
+	email = LOCAL_DATA.user.email;
+	id = LOCAL_DATA.user.id;
+}
+if (LOCAL_DATA.user && envVars.platform != 'web-silp') {
+	window.doselect = {
+		"api_key": envVars.doSelectApiKey,
+		"email": LOCAL_DATA.user.doSelectProperties.email,
+		"full_name": LOCAL_DATA.user.name,
+		"timezone": "Asia/Kolkata",
+		"user_hash": LOCAL_DATA.user.doSelectProperties.hash,
+		"defer": true
+	}
+}
+
+var _rollbarConfig = {
+	accessToken: LOCAL_DATA.rollbar,
+	ignoredMessages : ["Script error.","Script error .","this.el_.vjs_getProperty is not a function","Failed to parse SourceMap", "\(unknown\): Syntax error", "SyntaxError: expected expression, got end of script", "ResizeObserver loop limit exceeded"],
+	autoInstrument: true,
+	captureUncaught: true,
+	payload: {
+		person : {
+			id : id,
+			email : email
+		},
+		environment: LOCAL_DATA.environment || "development"
+	},
+	hostWhiteList : LOCAL_DATA.hostWhiteList,
+	checkIgnore: function(isUncaught, args, payload) {
+		try {
+			var framesLength = payload.body.trace.frames.length;
+			var filesToTrack = [
+				'student-view.js',
+				'teacher-view.js',
+				'performance-review-view.js'
+			];
+			var errFile = payload.body.trace.frames[framesLength - 1].filename;
+			toTrack = filesToTrack.find(function(file){
+				return errFile.indexOf(file) != -1
+			})
+			return !toTrack;
+		} catch (err) {
+			return false;
+		};
+	}
+};
+// Rollbar Snippet
+!function(r){function o(n){if(e[n])return e[n].exports;var t=e[n]={exports:{},id:n,loaded:!1};return r[n].call(t.exports,t,t.exports,o),t.loaded=!0,t.exports}var e={};return o.m=r,o.c=e,o.p="",o(0)}([function(r,o,e){"use strict";var n=e(1),t=e(4);_rollbarConfig=_rollbarConfig||{},_rollbarConfig.rollbarJsUrl=_rollbarConfig.rollbarJsUrl||"https://cdnjs.cloudflare.com/ajax/libs/rollbar.js/2.2.3/rollbar.min.js",_rollbarConfig.async=void 0===_rollbarConfig.async||_rollbarConfig.async;var a=n.setupShim(window,_rollbarConfig),l=t(_rollbarConfig);window.rollbar=n.Rollbar,a.loadFull(window,document,!_rollbarConfig.async,_rollbarConfig,l)},function(r,o,e){"use strict";function n(r){return function(){try{return r.apply(this,arguments)}catch(r){try{console.error("[Rollbar]: Internal error",r)}catch(r){}}}}function t(r,o){this.options=r,this._rollbarOldOnError=null;var e=s++;this.shimId=function(){return e},window&&window._rollbarShims&&(window._rollbarShims[e]={handler:o,messages:[]})}function a(r,o){var e=o.globalAlias||"Rollbar";if("object"==typeof r[e])return r[e];r._rollbarShims={},r._rollbarWrappedError=null;var t=new p(o);return n(function(){o.captureUncaught&&(t._rollbarOldOnError=r.onerror,i.captureUncaughtExceptions(r,t,!0),i.wrapGlobals(r,t,!0)),o.captureUnhandledRejections&&i.captureUnhandledRejections(r,t,!0);var n=o.autoInstrument;return(void 0===n||n===!0||"object"==typeof n&&n.network)&&r.addEventListener&&(r.addEventListener("load",t.captureLoad.bind(t)),r.addEventListener("DOMContentLoaded",t.captureDomContentLoaded.bind(t))),r[e]=t,t})()}function l(r){return n(function(){var o=this,e=Array.prototype.slice.call(arguments,0),n={shim:o,method:r,args:e,ts:new Date};window._rollbarShims[this.shimId()].messages.push(n)})}var i=e(2),s=0,d=e(3),c=function(r,o){return new t(r,o)},p=d.bind(null,c);t.prototype.loadFull=function(r,o,e,t,a){var l=function(){var o;if(void 0===r._rollbarDidLoad){o=new Error("rollbar.js did not load");for(var e,n,t,l,i=0;e=r._rollbarShims[i++];)for(e=e.messages||[];n=e.shift();)for(t=n.args||[],i=0;i<t.length;++i)if(l=t[i],"function"==typeof l){l(o);break}}"function"==typeof a&&a(o)},i=!1,s=o.createElement("script"),d=o.getElementsByTagName("script")[0],c=d.parentNode;s.crossOrigin="",s.src=t.rollbarJsUrl,e||(s.async=!0),s.onload=s.onreadystatechange=n(function(){if(!(i||this.readyState&&"loaded"!==this.readyState&&"complete"!==this.readyState)){s.onload=s.onreadystatechange=null;try{c.removeChild(s)}catch(r){}i=!0,l()}}),c.insertBefore(s,d)},t.prototype.wrap=function(r,o,e){try{var n;if(n="function"==typeof o?o:function(){return o||{}},"function"!=typeof r)return r;if(r._isWrap)return r;if(!r._rollbar_wrapped&&(r._rollbar_wrapped=function(){e&&"function"==typeof e&&e.apply(this,arguments);try{return r.apply(this,arguments)}catch(e){var o=e;throw"string"==typeof o&&(o=new String(o)),o._rollbarContext=n()||{},o._rollbarContext._wrappedSource=r.toString(),window._rollbarWrappedError=o,o}},r._rollbar_wrapped._isWrap=!0,r.hasOwnProperty))for(var t in r)r.hasOwnProperty(t)&&(r._rollbar_wrapped[t]=r[t]);return r._rollbar_wrapped}catch(o){return r}};for(var u="log,debug,info,warn,warning,error,critical,global,configure,handleUncaughtException,handleUnhandledRejection,captureDomContentLoaded,captureLoad".split(","),f=0;f<u.length;++f)t.prototype[u[f]]=l(u[f]);r.exports={setupShim:a,Rollbar:p}},function(r,o){"use strict";function e(r,o,e){if(r){var t;"function"==typeof o._rollbarOldOnError?t=o._rollbarOldOnError:r.onerror&&!r.onerror.belongsToShim&&(t=r.onerror,o._rollbarOldOnError=t);var a=function(){var e=Array.prototype.slice.call(arguments,0);n(r,o,t,e)};a.belongsToShim=e,r.onerror=a}}function n(r,o,e,n){r._rollbarWrappedError&&(n[4]||(n[4]=r._rollbarWrappedError),n[5]||(n[5]=r._rollbarWrappedError._rollbarContext),r._rollbarWrappedError=null),o.handleUncaughtException.apply(o,n),e&&e.apply(r,n)}function t(r,o,e){if(r){"function"==typeof r._rollbarURH&&r._rollbarURH.belongsToShim&&r.removeEventListener("unhandledrejection",r._rollbarURH);var n=function(r){var e=r.reason,n=r.promise,t=r.detail;!e&&t&&(e=t.reason,n=t.promise),o&&o.handleUnhandledRejection&&o.handleUnhandledRejection(e,n)};n.belongsToShim=e,r._rollbarURH=n,r.addEventListener("unhandledrejection",n)}}function a(r,o,e){if(r){var n,t,a="EventTarget,Window,Node,ApplicationCache,AudioTrackList,ChannelMergerNode,CryptoOperation,EventSource,FileReader,HTMLUnknownElement,IDBDatabase,IDBRequest,IDBTransaction,KeyOperation,MediaController,MessagePort,ModalWindow,Notification,SVGElementInstance,Screen,TextTrack,TextTrackCue,TextTrackList,WebSocket,WebSocketWorker,Worker,XMLHttpRequest,XMLHttpRequestEventTarget,XMLHttpRequestUpload".split(",");for(n=0;n<a.length;++n)t=a[n],r[t]&&r[t].prototype&&l(o,r[t].prototype,e)}}function l(r,o,e){if(o.hasOwnProperty&&o.hasOwnProperty("addEventListener")){for(var n=o.addEventListener;n._rollbarOldAdd&&n.belongsToShim;)n=n._rollbarOldAdd;var t=function(o,e,t){n.call(this,o,r.wrap(e),t)};t._rollbarOldAdd=n,t.belongsToShim=e,o.addEventListener=t;for(var a=o.removeEventListener;a._rollbarOldRemove&&a.belongsToShim;)a=a._rollbarOldRemove;var l=function(r,o,e){a.call(this,r,o&&o._rollbar_wrapped||o,e)};l._rollbarOldRemove=a,l.belongsToShim=e,o.removeEventListener=l}}r.exports={captureUncaughtExceptions:e,captureUnhandledRejections:t,wrapGlobals:a}},function(r,o){"use strict";function e(r,o){this.impl=r(o,this),this.options=o,n(e.prototype)}function n(r){for(var o=function(r){return function(){var o=Array.prototype.slice.call(arguments,0);if(this.impl[r])return this.impl[r].apply(this.impl,o)}},e="log,debug,info,warn,warning,error,critical,global,configure,handleUncaughtException,handleUnhandledRejection,_createItem,wrap,loadFull,shimId,captureDomContentLoaded,captureLoad".split(","),n=0;n<e.length;n++)r[e[n]]=o(e[n])}e.prototype._swapAndProcessMessages=function(r,o){this.impl=r(this.options);for(var e,n,t;e=o.shift();)n=e.method,t=e.args,this[n]&&"function"==typeof this[n]&&("captureDomContentLoaded"===n||"captureLoad"===n?this[n].apply(this,[t[0],e.ts]):this[n].apply(this,t));return this},r.exports=e},function(r,o){"use strict";r.exports=function(r){return function(o){if(!o&&!window._rollbarInitialized){r=r||{};for(var e,n,t=r.globalAlias||"Rollbar",a=window.rollbar,l=function(r){return new a(r)},i=0;e=window._rollbarShims[i++];)n||(n=e.handler),e.handler._swapAndProcessMessages(l,e.messages);window[t]=n,window._rollbarInitialized=!0}}}}]);
+// End Rollbar Snippet</script><script type="text/javascript" src="https://assets.doselect.com/embed/v3/doselect-embed.min.js"></script><script type="text/javascript">var clevertap = {event:[], profile:[], account:[], onUserLogin:[], notifications:[]};
+ // replace with the CLEVERTAP_ACCOUNT_ID with the actual ACCOUNT ID value from your Dashboard -> Settings page
+ clevertap.account.push({"id": LOCAL_DATA.cleverTap});
+ (function () {
+		 var wzrk = document.createElement('script');
+		 wzrk.type = 'text/javascript';
+		 wzrk.async = true;
+		 wzrk.src = ('https:' == document.location.protocol ? 'https://d2r1yp2w7bby2u.cloudfront.net' : 'http://static.clevertap.com') + '/js/a.js';
+		 var s = document.getElementsByTagName('script')[0];
+		 s.parentNode.insertBefore(wzrk, s);
+  })();
+</script></head><body></body><script src="/javascripts/vendors/select2.full.min.js"></script><script type="text/javascript" src="/javascripts/vendor-builds/bundle.min.js?v=1618808490363"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.6/ace.js" onerror="getHostedData('https://s3-ap-southeast-1.amazonaws.com/upgradcdn/ace.js')"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.10.0/js/jquery.overlayScrollbars.min.js"></script><nav class="navbar navbar-default viewer-main-navbar"><div class="container-fluid"><div class="navbar-header"><a class="navbar-brand login-navbar-brand" href="/"><img src="/upGrad-logo-red.svg" alt=""></a></div></div></nav><div class="login-main"><div class="login-page"><div class="container login-container"><div class="not-supported hide"> This screen size is not supported. Please use your Desktop/Laptop to view this page or download our Android app from the play store.<a class="pull-left" href="https://play.google.com/store/apps/details?id=com.upgrad.student&amp;utm_source=global_co&amp;utm_medium=prtnr&amp;utm_content=Mar2515&amp;utm_campaign=PartBadge&amp;pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1" target="_blank"></a><img class="img-responsive android-logo" alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png"></div><div class="row"><div class="login"><form id="loginModal" role="form"><div class="row"><div class="col-sm-12 login-header text-center"><div class="login-upgrad-logo"><img src="/QuarterG.svg"></div><h1 class="text-center">Welcome to upGrad!</h1></div></div><div class="row"><div class="col-sm-12 login-content"><div class="form-group login-form-group"><label for="username">Email</label><input class="form-control login-input-text" id="username" type="email" name="username" required></div><div class="form-group login-form-group"><label for="userPassword">Password</label><input class="form-control login-input-text" id="password" type="password" name="password" required></div><div class="form-group login-form-group forgot-password-wrapper text-right"><a class="forgot-password" href="/">Forgot Password?</a></div><div class="login-form-group"><div class="alert success info alert-success hide" role="alert"><a class="close" href="#">&times;</a><strong>Success! </strong>Your password has been updated. Please login with your new password.</div><div class="alert danger info alert-danger hide" role="alert"><a class="close" href="#">&times;</a><strong>Error! </strong><span> </span></div></div><div class="login-form-group clearfix"><button class="login-custom mbtn mbtn-a mbtn-inline mbtn-green" id="login" type="submit">Login</button><div class="col-sm-12 login-button text-center clearfix"><a class="android" href="https://play.google.com/store/apps/details?id=com.upgrad.student&amp;utm_source=global_co&amp;utm_medium=prtnr&amp;utm_content=Mar2515&amp;utm_campaign=PartBadge&amp;pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1" target="_blank"><img class="android-logo" alt="Get it on Google Play" src="./en_badge_web_generic.png"></a><a class="ios" href="https://itunes.apple.com/us/app/upgrad/id1191301447?ls=1&amp;mt=8" target="_blank"><img class="ios-logo" src="/app-store-badge.svg" alt=""></a></div></div></div></div></form><form class="hide" id="forgotPasswordModal" role="form"><div class="row"><div class="col-sm-12 login-header text-center"><span class="back"><i class="material-icons md-24">arrow_back</i></span><h1>Forgot Password</h1></div></div><div class="row"><div class="col-sm-12 login-content"><div class="form-group login-form-group"><label for="useremail">Email Address</label><input class="form-control login-input-text" id="useremail" type="email" name="useremail" required><br><span style="font-size:12px;">You will receive an OTP on your registered email to change your password</span></div><div id="forgot-password-recaptcha"></div><div class="login-form-group clearfix"><div class="col-sm-12 login-button text-center"><button class="mbtn mbtn-a mbtn-inline mbtn-green" id="getForgotPassword" type="submit">Get OTP</button></div></div><div class="login-form-group"><div class="alert danger info alert-danger hide" role="alert"><a class="close" href="#">&times;</a><strong>Error! </strong><span> </span></div></div></div></div></form><form class="hide" id="changePasswordModal" role="form"><div class="row"><div class="col-sm-12 login-header text-center"><div class="back"><i class="material-icons md-24">arrow_back</i></div><h1>Change Password</h1></div></div><div class="row"><div class="col-sm-12 login-content"><div class="form-group login-form-group"><label for="token">OTP <span class="text-green">(OTP has been sent to your email address.)</span></label><input class="form-control login-input-text" id="token" type="number" name="token" required></div><div class="form-group login-form-group"><label for="newpassword">New Password</label><input class="form-control login-input-text" id="newpassword" type="password" name="newpassword" required></div><div class="form-group login-form-group"><label for="confirmpassword">Confirm Password</label><input class="form-control login-input-text" id="confirmpassword" type="password" name="confirmpassword" required></div><div id="resend-otp-recaptcha"></div><div class="form-group login-form-group text-right clearfix"><span class="resendOTP">Resend OTP?</span></div><div id="change-password-recaptcha"></div><div class="login-form-group clearfix"><div class="col-sm-12 login-button text-center"><button class="mbtn mbtn-a mbtn-inline mbtn-green" id="changePassword" type="submit">Submit</button></div></div><div class="row"><div class="login-form-group"><div class="alert success info alert-success hide" role="alert"><a class="close" href="#">&times;</a><strong>Success! </strong>OTP has been sent to you again</div></div><div class="login-form-group"><div class="alert danger info alert-danger hide" role="alert"><a class="close" href="#">&times;</a><strong>Error! </strong><span></span></div></div></div></div></div></form></div></div></div></div></div><div class="reload-message hide"><p>Something went wrong. Please reload.<button class="reload-button">Reload</button></p></div><script type="text/javascript" src="/javascripts/builds/login.js?v=1618808490363"></script></html>

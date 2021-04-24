@@ -1,0 +1,19 @@
+window.botHandle = window.botHandle || (function(){
+	return {
+		initialize: function(container, SharedModel, UserModel) {
+			if(SharedModel.get('courseConfiguration').assistant){
+				window.assistantInitialized = true;
+				return this.render(container, SharedModel, UserModel);
+			}
+		},
+		render: function(container, SharedModel, UserModel) {
+			$.getScript(SharedModel.get('eaVendorbundleUrl')+ '?v=' + LOCAL_DATA.version, function(){
+				$.getScript(SharedModel.get('eaAppbundleUrl')+ '?v=' + LOCAL_DATA.version, function(){
+					bot.courseTimezone = SharedModel.get('courseTimezone');
+					bot.User = UserModel
+					bot.init(container);
+				});
+			});
+		},
+	};
+}());

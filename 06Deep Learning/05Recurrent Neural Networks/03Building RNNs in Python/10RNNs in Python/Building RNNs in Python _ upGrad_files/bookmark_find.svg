@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="184px" height="184px" viewBox="0 0 184 184" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 10</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="184" height="184"></rect>
+        <circle id="path-3" cx="92" cy="92" r="91"></circle>
+        <circle id="path-5" cx="91" cy="91" r="91"></circle>
+    </defs>
+    <g id="Follow-flow" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-10">
+            <g id="bookmark_find">
+                <g id="Mask">
+                    <g id="path-1-link" transform="translate(1.000000, 1.000000)" fill="#D8D8D8">
+                        <circle id="path-1" cx="91" cy="91" r="91"></circle>
+                    </g>
+                    <g id="path-1-link">
+                        <g id="path-1-Clipped">
+                            <mask id="mask-2" fill="white">
+                                <use xlink:href="#path-1"></use>
+                            </mask>
+                            <g id="Rectangle-path"></g>
+                            <circle id="path-1" stroke="#22AF73" stroke-width="2" mask="url(#mask-2)" cx="92" cy="92" r="91"></circle>
+                            <mask id="mask-4" fill="white">
+                                <use xlink:href="#path-3"></use>
+                            </mask>
+                            <g id="path-1"></g>
+                        </g>
+                    </g>
+                </g>
+                <g id="Clipped" transform="translate(1.000000, 1.000000)">
+                    <mask id="mask-6" fill="white">
+                        <use xlink:href="#path-5"></use>
+                    </mask>
+                    <g id="path-1"></g>
+                    <g id="Group" mask="url(#mask-6)">
+                        <g transform="translate(-181.000000, -105.000000)">
+                            <g id="Mask" stroke="none" fill-rule="evenodd">
+                                <g id="path-4-link" fill="#000000" fill-rule="nonzero">
+                                    <rect id="path-4" x="0" y="0" width="628" height="260" rx="3"></rect>
+                                </g>
+                                <g id="path-4-link" fill="#FFFFFF">
+                                    <rect id="path-4" x="0" y="0" width="628" height="260" rx="3"></rect>
+                                </g>
+                            </g>
+                            <path d="M34.5,212.5 L587.574036,212.5" id="Line" stroke="#E2E2E2" stroke-linecap="square"></path>
+                            <g id="Answer" stroke="none" fill-rule="evenodd" transform="translate(157.000000, 224.000000)" font-family="Lato-Bold, Lato" font-size="12" font-weight="bold">
+                                <text fill="#6E6E6E">
+                                    <tspan x="0" y="12">Answer</tspan>
+                                </text>
+                            </g>
+                            <g id="Group" stroke="none" fill-rule="evenodd" transform="translate(231.000000, 223.000000)">
+                                <g id="Group-8">
+                                    <g id="Group-7">
+                                        <g id="Group-9">
+                                            <polygon id="Shape" points="0 0 16 0 16 16 0 16"></polygon>
+                                            <path d="M13.8038836,12.0392569 L12.7301099,10.4322698 L12.7301099,6.09000181 C12.7301099,3.6772011 10.9439027,1.68238717 8.62177538,1.35352707 L8.62177538,0.676666868 C8.62177538,0.302953424 8.31882196,0 7.94510851,0 C7.57139507,0 7.26844165,0.302953424 7.26844165,0.676666868 L7.26844165,1.35352707 C4.94631429,1.68238717 3.16010709,3.6772011 3.16010709,6.09000181 L3.16010709,10.4324631 L2.08633344,12.0394503 C1.96994673,12.2488303 1.97130007,12.5057704 2.09000677,12.7139905 C2.20871347,12.9222105 2.4260202,13.0501972 2.66169361,13.0501972 L13.2285234,13.0501972 C13.4641968,13.0501972 13.6816969,12.9222105 13.8002103,12.7139905 C13.9185303,12.5057704 13.920077,12.2488303 13.8038836,12.0392569 Z M7.94510851,15.7566714 C8.7950021,15.7566714 9.52618898,14.9585911 9.83996908,13.8233375 L6.05024795,13.8233375 C6.36402804,14.9585911 7.09540826,15.7566714 7.94510851,15.7566714 Z" id="Shape" fill="#CDCDCD" fill-rule="nonzero"></path>
+                                        </g>
+                                        <text id="Follow" font-family="Lato-Bold, Lato" font-size="12" font-weight="bold" line-spacing="12" fill="#5A5A5A">
+                                            <tspan x="24" y="14">Follow</tspan>
+                                        </text>
+                                    </g>
+                                </g>
+                            </g>
+                            <g id="Perceived-end-knowle" stroke="none" fill-rule="evenodd" transform="translate(33.000000, 119.000000)" font-family="Lato-Regular, Lato" font-size="12" font-weight="normal">
+                                <text id="Perceived-end-knowledge-certainly-day-sweetness-why-cordially.-Ask-quick-six-seven-offer-see" fill="#606060">
+                                    <tspan x="0" y="12">Perceived end knowledge certainly day sweetness why cordially. Ask quick six seven offer see</tspan>
+                                </text>
+                                <text id="among.-Handsome-met-debating-sir-dwelling-age-material.-As-style-lived-he-worse-dried.-Offered" fill="#606060">
+                                    <tspan x="0" y="32">among. Handsome met debating sir dwelling age material. As style lived he worse dried. Offered</tspan>
+                                </text>
+                                <text id="related-so-visitor-we-private-removed.-Moderate-do-subjects-to-distance." fill="#606060">
+                                    <tspan x="0" y="52">related so visitor we private removed. Moderate do subjects to distance.</tspan>
+                                </text>
+                            </g>
+                            <g id="Components-and-Attri" stroke="none" fill-rule="evenodd" transform="translate(199.000000, 183.000000)" font-family="Lato-Bold, Lato" font-size="12" font-weight="bold">
+                                <text id="Components-and-Attributes-of-a-Pitch-Deck" fill="#797979">
+                                    <tspan x="0" y="12">Components and Attributes of a Pitch Deck</tspan>
+                                </text>
+                            </g>
+                            <g id="ic_label_black_24px" stroke="none" fill-rule="evenodd" transform="translate(181.000000, 190.000000)">
+                                <g id="Group">
+                                    <polygon id="Shape" points="0 0 12 0 12 12 0 12"></polygon>
+                                    <path d="M8.815,2.92 C8.635,2.665 8.335,2.5 8,2.5 L2.5,2.505 C1.95,2.505 1.5,2.95 1.5,3.5 L1.5,8.5 C1.5,9.05 1.95,9.495 2.5,9.495 L8,9.5 C8.335,9.5 8.635,9.335 8.815,9.08 L11,6 L8.815,2.92 Z" id="Shape" fill="#A9A9A9" fill-rule="nonzero"></path>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
