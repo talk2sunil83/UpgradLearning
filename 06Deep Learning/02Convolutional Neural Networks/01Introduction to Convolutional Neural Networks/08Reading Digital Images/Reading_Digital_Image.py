@@ -51,7 +51,7 @@ print(x)
 # Reading color image
 cat = cv2.imread('cat.png')
 plt.imshow(cv2.cvtColor(cat, cv2.COLOR_BGR2RGB))
-
+plt.show()
 
 # %%
 print('The shape of image is ', cat.shape)

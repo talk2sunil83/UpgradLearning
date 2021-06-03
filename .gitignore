@@ -128,8 +128,6 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-
-
 # Created by https://www.toptal.com/developers/gitignore/api/python,jupyternotebooks,pycharm+all,pycharm+iml,vscode
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,jupyternotebooks,pycharm+all,pycharm+iml,vscode
 
@@ -284,7 +282,6 @@ modules.xml
 ### PyCharm+iml Patch ###
 # Reason: https://github.com/joeblau/gitignore.io/issues/186#issuecomment-249601023
 
-
 ### Python ###
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -432,7 +429,6 @@ dmypy.json
 
 # End of https://www.toptal.com/developers/gitignore/api/python,jupyternotebooks,pycharm+all,pycharm+iml,vscode
 
-
 #  Custome
 
 **/*.csv
@@ -475,5 +471,4 @@ dmypy.json
 **/FoodieChatBotWithCsv - Copy/
 **/VideoPrep/
 
-
-
+06Deep Learning/04Convolutional Neural Networks - Industry Applications/03Industry Demo_ Detecting Vehicles in Videos/AundhBridge.mp4
