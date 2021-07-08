@@ -16,5 +16,5 @@ for file_name in img_names:
     target_file_name = f"{target_images_dir}/{file_name}.ico"
     if not os.path.exists(target_file_name):
         img = Image.open(f"{source_images_dir}/{file_name}")
-        icon_sizes = [(16, 16), (32, 32), (48, 48), (64, 64)]
+        icon_sizes = [[(16, 16), (24, 24), (32, 32), (48, 48), (64, 64), (128, 128), (255, 255)]]
         img.save(target_file_name, sizes=icon_sizes)
